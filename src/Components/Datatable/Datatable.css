@@ -1,0 +1,15 @@
+.container-tables {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+
+}
+
+.text-center {
+    text-align: center;
+    align-items: center;
+    font-size: 28;
+}

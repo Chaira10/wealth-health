@@ -1,0 +1,9 @@
+.container-table {
+    margin-left: 180px;
+    min-width: 80vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    
+}

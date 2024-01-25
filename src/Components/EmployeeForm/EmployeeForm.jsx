@@ -1,8 +1,189 @@
-import './EmployeeForm.css'
+
+import './EmployeeForm.css';
+import { Link } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Select from '../Select/Select';
+import  { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setNewEmployee } from '../../Features/dataReducer.js';
+import Modal from 'react-modal';
+
+
+
+
 
 function EmployeeForm() {
+  const dispatch = useDispatch();
+
+  const generateUniqueId = () => {
+    const array = new Uint32Array(2);
+    window.crypto.getRandomValues(array);
+    return array.join('-');
+  };
+
+  const [uniqueId, setUniqueId] = useState(generateUniqueId());
+  // setUniqueId(generateUniqueId());
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    startDate: '',
+    street: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    department: '',
+    id: ''
+  });
+
+  const departments = ['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal'];
+  const zipCodeOptions = ['12345', '67890', '34567', '89012', '45678'];
+  // faudra stocker ou générer son abréviation
+  const stateOptions = ['Alabama', 'California', 'Colorado', 'Massachusetts', 'Missouri'];
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => {
+    setModalIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleDateChange = (date, fieldId) => {
+    setFormData({ ...formData, [fieldId]: date });
+  };
+  const saveEmployee = (e) => {
+    e.preventDefault();
+    console.log('Employee Data:', formData);
+    dispatch(setNewEmployee(formData));
+    const formDataWithUniqueId = {
+      ...formData,
+      id: uniqueId,
+    };
+    dispatch(setNewEmployee(formDataWithUniqueId));
+    openModal();
+    // Afficher le message de confirmation
+    // setShowConfirmation(true);
+    // Réinitialiser le formulaire après le traitement
+    setFormData({
+      firstName: '',
+      lastName: '',
+      dateOfBirth: '',
+      startDate: '',
+      street: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      department: '',
+    });
+  // Réinitialiser uniqueId
+  setUniqueId(generateUniqueId());
+  
+  };
   return (
-    <div>EmployeeForm</div>
+    <div className='container-form'>
+      <div className="form-container">
+
+      <div className="container-sm-form">
+      <div className="title">
+        <h1>HRnet</h1>
+      </div>
+      <div className="text">
+      <Link to="/employees" className="link-all">View Current Employees</Link>
+      <h2>Create Employee</h2>
+      </div>
+      <form id="create-employee" className="form" onSubmit={saveEmployee}>
+      <div className="form-row">
+        <div className="input-group">
+            <label htmlFor="first-name" className="label">First Name</label>
+            <input type="text" id="firstName" className='input' value={formData.firstName} onChange={handleChange} />
+        </div>
+
+        <div className="input-group">
+            <label htmlFor="last-name" className="label">Last Name</label>
+            <input type="text" id="lastName" className='input' value={formData.lastName} onChange={handleChange} />
+        </div>
+    </div>
+    <div className="form-row">
+    <div className="input-group">
+        <label htmlFor="date-of-birth" className="label">Date of Birth</label>
+        <DatePicker
+            id="dateOfBirth"
+            selected={formData.dateOfBirth}
+            onChange={(date) => handleDateChange(date, "dateOfBirth")}
+            dateFormat="dd/MM/yyyy H:m:s"
+            className= "input"
+        />
+    </div>
+
+    <div className="input-group">
+        <label htmlFor="start-date" className="label">Start Date</label>
+        <DatePicker
+            id="startDate"
+            selected={formData.startDate}
+            onChange={(date) => handleDateChange(date, "startDate")}
+            dateFormat="dd/MM/yyyy H:m:s"
+            className= "input"
+        />
+    </div>
+</div>
+<div className="form-row">
+    <div className="input-group">
+        <label htmlFor="street" className="label">Street</label>
+        <input id="street" type="text" className='input' value={formData.street} onChange={handleChange} />
+    </div>
+
+    <div className="input-group">
+        <label htmlFor="city" className="label">City</label>
+        <input id="city" type="text" className='input' value={formData.city} onChange={handleChange} />
+    </div>
+</div>
+<div className="form-row">
+    <div className="input-group">
+        <label htmlFor="state" className="label">State</label>
+        <Select value={formData.state} onChange={handleChange} options={stateOptions} placeholder={'Selectionnez ...'}  name="state" id="state" />
+    </div>
+
+    <div className="input-group">
+        <label htmlFor="zipCode" className="label">Zip Code</label>
+        <Select value={formData.zipCode} onChange={handleChange} options={zipCodeOptions} placeholder={'Selectionnez ...'} name="zipCode" id="zipCode" />
+    </div>
+
+    <div className="input-group">
+        <label htmlFor="department" className="label">Department</label>
+        <Select value={formData.department} onChange={handleChange} options={departments} placeholder={'Selectionnez ...'} name="department" id="department" />
+    </div>
+</div>
+      <input type="hidden" id="uniqueId" value={uniqueId}  onChange={handleChange} />
+      <div className="btn-container">
+      <button onClick={saveEmployee} className="btn-save">Save</button>
+      </div>
+
+      </form>
+      
+
+    </div>
+      
+      
+      
+      
+      
+      
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Modal de Soumission"
+      >
+        <h2>Employée ajouté</h2>
+        <button className="Modal__CloseButton" onClick={closeModal}>Fermer la Modal</button>
+      </Modal>
+    </div>
   )
 }
 

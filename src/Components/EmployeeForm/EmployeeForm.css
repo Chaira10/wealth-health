@@ -46,6 +46,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px; 
+    margin-right: 5px;
 }
 
 
@@ -87,6 +88,37 @@
 
 }
 
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Pour que la div remplisse toute la hauteur de la modale */
+  }
+  
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto; /* Pour pousser les boutons vers le bas */
+  }
+  .Modal_CloseButton {
+    background-color: #6F5A7E;
+    color: white;
+
+  }
+  .Modal_ShowButton {
+    background-color: #5A6F08;
+    padding: 0.6em 1.2em;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+  }
+  .Modal_CloseButton,
+  .Modal_ShowButton {
+    margin-left: 10px;
+  }
 
 
 

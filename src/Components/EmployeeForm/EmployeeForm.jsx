@@ -3,11 +3,12 @@ import './EmployeeForm.css';
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Select from '../Select/Select';
+// import Select from '../Select/Select';
 import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setNewEmployee } from '../../Features/dataReducer.js';
 import Modal from 'react-modal';
+import { Select }  from 'lib-select-oc'
 
 
 
@@ -180,8 +181,17 @@ function EmployeeForm() {
         onRequestClose={closeModal}
         contentLabel="Modal de Soumission"
       >
-        <h2>Employée ajouté</h2>
-        <button className="Modal__CloseButton" onClick={closeModal}>Fermer la Modal</button>
+      <div className="modal-content">
+
+      <h2>Employée ajouté</h2>
+        <div className="btn-container">
+        <Link to="/employees" className="Modal_ShowButton">View Current Employees</Link>
+        <button className="Modal_CloseButton" onClick={closeModal}>Fermer</button>
+        
+        </div>
+      </div>
+
+
       </Modal>
     </div>
   )

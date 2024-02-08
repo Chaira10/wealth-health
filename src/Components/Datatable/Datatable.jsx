@@ -61,17 +61,16 @@ function Datatable() {
         })
         setRecords(newData)
     }
-  return (
+    return (
     <div className="container-tables">
     <h4 className='text-center title'>Current Employees</h4>
     <div className="text-end">
-    
         <input type="text" onChange={handleFilter}/>
     </div>
     <DataTable columns={columns} data={records} fixedHeader pagination striped>
     </DataTable>
     </div>
-  )
+    )
 }
 
 export default Datatable

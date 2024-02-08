@@ -1,16 +1,16 @@
-import Datatable from '../../Components/Datatable/Datatable';
-import Sidebar from '../../Components/SideBar/Sidebar';
-import './Employees.css';
+import Datatable from "../../Components/Datatable/Datatable";
+import Sidebar from "../../Components/SideBar/Sidebar";
+import "./Employees.css";
 
 function Employees() {
   return (
     <div>
       <Sidebar />
-    <div className='container-table'>
-      <Datatable />
+      <div className="container-table">
+        <Datatable />
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Employees
+export default Employees;

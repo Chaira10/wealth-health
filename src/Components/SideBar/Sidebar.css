@@ -29,8 +29,6 @@ li {
     height: 80vh;
     display:flex;
     color: #5A6F08;
-    /* align-items: center;
-    justify-content: center; */
 }
 
 .icon-sidebar {
@@ -41,10 +39,10 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 0; /* Ajustez la valeur de rembourrage selon vos besoins */
-  }
-  
-  .logo-sidebar {
-    max-width: 100%; /* Assurez-vous que le logo ne dépasse pas la largeur de son conteneur */
-    height: auto; /* Permet au logo de conserver ses proportions */
-  }
+    padding: 0px 0; 
+}
+
+.logo-sidebar {
+    max-width: 100%; 
+    height: auto; 
+}

@@ -1,6 +1,6 @@
-# Projet 14 Faites passer une librairie jQuery vers React
+# OC Projet 14 Faire passer une librairie jQuery vers React
 
-![Logo de l'application](./public/logo-wealth.png)
+![Logo de l'application](./public/logo-readme.png)
 
 # Projet de Refonte HRNet en React avec Redux et Persistance des Données
 

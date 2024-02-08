@@ -37,3 +37,7 @@ npm run dev
 
 5. Accédez à l'application dans votre navigateur en ouvrant l'URL suivante :
 [http://localhost:5173/](http://localhost:5173/)
+
+# Tests de performance
+
+Pour consulter l'analyse des tests de performance, veuillez télécharger le fichier PDF [ici](./public/pdf/Test.pdf).

@@ -65,6 +65,30 @@ function EmployeeForm() {
   const handleDateChange = (date, fieldId) => {
     setFormData({ ...formData, [fieldId]: date });
   };
+
+  const handleStateChange = (e) => {
+    const { name, value } = e.target;
+  
+    // Mettre à jour formData avec la nouvelle valeur
+    setFormData({ ...formData, [name]: value });
+    // setFormData({ ...formData,  [e.target.id]: e.target.value });
+  };
+  
+  const handleZipCodeChange = (e) => {
+    // console.log(selectedZipCode);
+    const { name, value } = e.target;
+  
+    // Mettre à jour formData avec la nouvelle valeur
+    setFormData({ ...formData, [name]: value });
+  };
+  
+  const handleDepartmentChange = (e) => {
+    const { name, value } = e.target;
+  
+    // Mettre à jour formData avec la nouvelle valeur
+    setFormData({ ...formData, [name]: value });
+  };
+
   const saveEmployee = (e) => {
     e.preventDefault();
     console.log("Employee Data:", formData);
@@ -73,6 +97,7 @@ function EmployeeForm() {
       ...formData,
       id: uniqueId,
     };
+    console.log(formDataWithUniqueId);
     dispatch(setNewEmployee(formDataWithUniqueId));
     openModal();
     // Afficher le message de confirmation
@@ -194,7 +219,7 @@ function EmployeeForm() {
                 </label>
                 <Select
                   value={formData.state}
-                  onChange={handleChange}
+                  onChange={handleStateChange}
                   options={stateOptions}
                   placeholder={"Selectionnez ..."}
                   name="state"
@@ -208,7 +233,7 @@ function EmployeeForm() {
                 </label>
                 <Select
                   value={formData.zipCode}
-                  onChange={handleChange}
+                  onChange={handleZipCodeChange}
                   options={zipCodeOptions}
                   placeholder={"Selectionnez ..."}
                   name="zipCode"
@@ -222,7 +247,7 @@ function EmployeeForm() {
                 </label>
                 <Select
                   value={formData.department}
-                  onChange={handleChange}
+                  onChange={handleDepartmentChange}
                   options={departments}
                   placeholder={"Selectionnez ..."}
                   name="department"

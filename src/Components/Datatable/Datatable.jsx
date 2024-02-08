@@ -63,7 +63,7 @@ function Datatable() {
     }
   return (
     <div className="container-tables">
-    <h4 className='text-center'>Current Employees</h4>
+    <h4 className='text-center title'>Current Employees</h4>
     <div className="text-end">
     
         <input type="text" onChange={handleFilter}/>

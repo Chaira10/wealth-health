@@ -9,6 +9,9 @@ function Sidebar() {
 
   return (
 <div className="sidebar open">
+<div className='container-logo'>
+<img src="../../../public/logo.png" alt="Logo application" className="logo-sidebar" />
+</div>
       <ul className="nav-side">
         {currentRoute.pathname === '/' ? (
           <li>

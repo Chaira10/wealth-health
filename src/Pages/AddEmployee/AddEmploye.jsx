@@ -6,19 +6,10 @@ import EmployeeForm from '../../Components/EmployeeForm/EmployeeForm';
 
 function AddEmploye() {
 
-
-
-
-
-
-
   return (
     <div>
     <Sidebar />
     <EmployeeForm />
-
-    
-
     </div>
   )
 }

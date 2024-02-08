@@ -5,7 +5,7 @@ import './Employees.css';
 function Employees() {
   return (
     <div>
-<Sidebar />
+      <Sidebar />
     <div className='container-table'>
       <Datatable />
     </div>

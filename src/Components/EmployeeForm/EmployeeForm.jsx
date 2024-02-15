@@ -1,5 +1,5 @@
 import "./EmployeeForm.css";
-import { Link } from "react-router-dom";
+import { NavLink  } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import Select from '../Select/Select';
@@ -277,9 +277,10 @@ function EmployeeForm() {
         <div className="modal-content">
           <h2>Employée ajouté</h2>
           <div className="btn-container">
-            <Link to="/employees" className="Modal_ShowButton">
+          <NavLink className="Modal_ShowButton" to="/employees">View Current Employees</NavLink>
+            {/* <Link to="/employees" className="Modal_ShowButton">
               View Current Employees
-            </Link>
+            </Link> */}
             <button className="Modal_CloseButton" onClick={closeModal}>
               Fermer
             </button>

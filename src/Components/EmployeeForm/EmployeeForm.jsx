@@ -125,9 +125,9 @@ function EmployeeForm() {
             <h1>HRnet</h1>
           </div>
           <div className="text">
-            <Link to="/employees" className="link-all">
+            <NavLink to="/employees" className="link-all">
               View Current Employees
-            </Link>
+            </NavLink>
             <h2>Create Employee</h2>
           </div>
           <form id="create-employee" className="form" onSubmit={saveEmployee}>

@@ -9,6 +9,8 @@ import { setNewEmployee } from "../../Features/dataReducer.js";
 import Modal from "react-modal";
 import { Select } from "lib-select-oc";
 
+Modal.setAppElement('#root')
+
 function EmployeeForm() {
   const dispatch = useDispatch();
 
@@ -63,7 +65,7 @@ function EmployeeForm() {
   };
 
   const handleDateChange = (date, fieldId) => {
-    setFormData({ ...formData, [fieldId]: date });
+    setFormData({ ...formData, [fieldId]: date});
   };
 
   const handleStateChange = (e) => {
@@ -112,6 +114,9 @@ if (
     const formDataWithUniqueId = {
       ...formData,
       id: uniqueId,
+      dateOfBirth: formData.dateOfBirth.toLocaleDateString(),
+      startDate: formData.startDate.toLocaleDateString(),
+
     };
     console.log(formDataWithUniqueId);
     dispatch(setNewEmployee(formDataWithUniqueId));
@@ -183,7 +188,7 @@ if (
                   id="dateOfBirth"
                   selected={formData.dateOfBirth}
                   onChange={(date) => handleDateChange(date, "dateOfBirth")}
-                  dateFormat="dd/MM/yyyy H:m:s"
+                  dateFormat="dd/MM/yyyy"
                   className="input"
                 />
               </div>
@@ -196,7 +201,7 @@ if (
                   id="startDate"
                   selected={formData.startDate}
                   onChange={(date) => handleDateChange(date, "startDate")}
-                  dateFormat="dd/MM/yyyy H:m:s"
+                  dateFormat="dd/MM/yyyy"
                   className="input"
                 />
               </div>

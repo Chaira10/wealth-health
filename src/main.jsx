@@ -4,7 +4,12 @@ import App from "./App.jsx";
 import "./index.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { persistReducer, persistStore } from "redux-persist";
+import { persistReducer, persistStore,FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER, } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import storage from "redux-persist/lib/storage";
 import dataReducer from "./Features/dataReducer.js";
@@ -26,7 +31,13 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 // Configuration du magasin Redux
 const store = configureStore({
   reducer: persistedReducer, // Le rootReducer contient la combinaison de tous les réducteurs
-  devTools: true, // Activation des outils de développement Redux dans le navigateur
+  devTools: true, // Activation des outils de développement Redux dans le navigateur a passr a false vercel
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 // export const persistor = persistStore(store);

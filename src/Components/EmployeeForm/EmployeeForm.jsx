@@ -91,6 +91,22 @@ function EmployeeForm() {
 
   const saveEmployee = (e) => {
     e.preventDefault();
+// Vérifiez si les champs requis sont remplis
+if (
+  formData.firstName === "" ||
+  formData.lastName === "" ||
+  formData.dateOfBirth === "" ||
+  formData.startDate === "" ||
+  formData.street === "" ||
+  formData.city === "" ||
+  formData.state === "" ||
+  formData.zipCode === "" ||
+  formData.department === ""
+) {
+  alert("Veuillez remplir tous les champs du formulaire.");
+  return; // Arrêtez l'exécution de la fonction si des champs sont manquants
+}
+
     console.log("Employee Data:", formData);
     // dispatch(setNewEmployee(formData));
     const formDataWithUniqueId = {

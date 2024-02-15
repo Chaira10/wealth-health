@@ -92,7 +92,7 @@ function EmployeeForm() {
   const saveEmployee = (e) => {
     e.preventDefault();
     console.log("Employee Data:", formData);
-    dispatch(setNewEmployee(formData));
+    // dispatch(setNewEmployee(formData));
     const formDataWithUniqueId = {
       ...formData,
       id: uniqueId,

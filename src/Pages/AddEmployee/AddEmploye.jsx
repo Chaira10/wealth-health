@@ -1,10 +1,10 @@
-import Sidebar from "../../Components/SideBar/Sidebar";
 import EmployeeForm from "../../Components/EmployeeForm/EmployeeForm";
+import Navbar from "../../Components/Navbar/Navbar";
 
 function AddEmploye() {
   return (
-    <div>
-      <Sidebar />
+    <div className="container-add-employee">
+      <Navbar />
       <EmployeeForm />
     </div>
   );

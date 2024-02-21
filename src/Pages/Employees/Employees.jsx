@@ -1,11 +1,11 @@
 import Datatable from "../../Components/Datatable/Datatable";
-import Sidebar from "../../Components/SideBar/Sidebar";
+import Navbar from "../../Components/Navbar/Navbar";
 import "./Employees.css";
 
 function Employees() {
   return (
-    <div>
-      <Sidebar />
+    <div className="container-page-employees">
+      <Navbar />
       <div className="container-table">
         <Datatable />
       </div>

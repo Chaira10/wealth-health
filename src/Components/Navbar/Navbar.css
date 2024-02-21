@@ -1,0 +1,36 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 150px;
+    border-bottom: 3px solid #6f5a7e;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: center; 
+    flex: 1; 
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.icon-navbar {
+    font-size: 24px;
+    border: 1px solid #6f5a7e;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.logo-navbar {
+    width: 100px;
+}

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const StyledDataTable = styled(DataTable)`
-  display: none;
+    display: none;
 `;
 
 function Datatable() {

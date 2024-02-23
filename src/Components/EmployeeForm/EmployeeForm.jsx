@@ -345,7 +345,7 @@ if (
       {/* Modal pour confirmer l'ajout d'un nouvel employé */}
       <Modal
         isOpen={modalIsOpen} // Contrôle l'affichage du modal basé sur l'état modalIsOpen
-        onRequestClose={closeModal} // Fonction appelée pour fermer le modal, par exemple lors d'un clic en dehors du modal ou sur un bouton de fermeture
+        onRequestClose={closeModal} // Fonction appelée pour fermer le modal,
         contentLabel="Modal de Soumission" // Label pour l'accessibilité, décrit le contenu du modal
       >
         <div className="modal-content">

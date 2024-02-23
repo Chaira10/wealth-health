@@ -74,9 +74,28 @@ function Datatable() {
     const [ records, setRecords ] = useState(employeesData);
     // Fonction pour gérer le filtrage des données basé sur la saisie utilisateur
     function handleFilter(event) {
+    const searchQuery = event.target.value.toLowerCase();
+
         const newData = employeesData.filter( row => {
-            // Filtre les données pour ne garder que les lignes correspondant à la recherche
-            return row.firstname.toLowerCase().includes(event.target.value.toLowerCase())
+        // Vérifie si le prénom correspond à la chaîne de recherche
+        // La méthode toLowerCase() assure que la comparaison est insensible à la casse
+        const firstNameMatch = row.firstName.toLowerCase().includes(searchQuery);
+        // Vérifie si le nom de famille correspond à la chaîne de recherche, si le nom de famille existe
+        const lastNameMatch = row.lastName ? row.lastName.toLowerCase().includes(searchQuery) : false;
+        // Vérifie si le département correspond à la chaîne de recherche, si le département existe
+        const departmentMatch = row.department ? row.department.toLowerCase().includes(searchQuery) : false;
+        // Vérifie si l'adresse (rue) correspond
+        const streetMatch = row.street ? row.street.toLowerCase().includes(searchQuery) : false;
+        // Permet la recherche par ville
+        const cityMatch = row.city ? row.city.toLowerCase().includes(searchQuery) : false;
+        // Vérifie si l'état (ou la région) correspond
+        const stateMatch = row.state ? row.state.toLowerCase().includes(searchQuery) : false;
+        // Vérifie si le code postal correspond
+        const zipCodeMatch = row.zipCode ? row.zipCode.includes(searchQuery) : false; 
+
+        // Retourne vrai (incluant la ligne dans les résultats) si l'un des champs correspond à la recherche
+        // Cela permet une recherche flexible à travers plusieurs champs
+        return firstNameMatch || lastNameMatch || departmentMatch ||  streetMatch || cityMatch || stateMatch || zipCodeMatch;
         })
         // Mise à jour de l'état des enregistrements avec les données filtrées
         setRecords(newData)

@@ -28,7 +28,7 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 // Configuration du store Redux avec le reducer persisté
 const store = configureStore({
   reducer: persistedReducer, // Le rootReducer contient la combinaison de tous les réducteurs
-  devTools: false, // Désactiver les outils de développement pour la production
+  devTools: true, // Désactiver les outils de développement pour la production
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       // Ignorer certaines actions de Redux Persist pour les vérifications de sérialisation
